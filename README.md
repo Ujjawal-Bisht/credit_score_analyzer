@@ -9,23 +9,28 @@ This project analyzes customer credit data and predicts whether a loan applicati
 - Good risk
 - Bad risk
 
-The final selected model is a Random Forest classifier, which achieved the highest accuracy among the tested models.
+The final selected model is a Random Forest classifier. For this project, the model was chosen because Random Forest delivered the strongest balance of recall and F1 score while staying very close to Extra Trees in ROC-AUC. This makes it the most suitable choice for identifying risky loan applicants more reliably.
 
 ## Project Structure
 
 ```text
 credit_score_analyzer/
+├── .venv/
 ├── data/
 │   └── german_credit_data.csv
 ├── models/
 │   ├── random_forest_credit_model.pkl
+│   ├── target_encoder.pkl
 │   └── label_encoders/
 │       ├── Sex_encoder.pkl
 │       ├── Housing_encoder.pkl
 │       ├── Saving accounts_encoder.pkl
-│       └── Checking account_encoder.pkl
+│       ├── Checking account_encoder.pkl
+│       └── Purpose_encoder.pkl
 ├── notebooks/
 │   └── pre_processing.ipynb
+├── reports/
+│   └── MODEL_EVALUATION_SUMMARY.md
 ├── main.py
 ├── requirements.txt
 ├── README.md
@@ -91,12 +96,13 @@ The project compares several classifiers:
 - Extra Trees
 - XGBoost
 
-The Random Forest model was selected as the best-performing model.
+The Random Forest model was selected as the best-performing model for this project because it achieved the best recall and F1 score among the evaluated models, while remaining competitive on ROC-AUC.
 
 ## Important Notes
 
 - The encoded categorical features are saved in the `models/label_encoders` folder.
 - The trained model is stored in `models/random_forest_credit_model.pkl`.
+- The final selected model is Random Forest because the project prioritizes recall and F1 score for credit-risk detection.
 - The model expects the same feature names and preprocessing logic used during training.
 
 ## Technologies Used
